@@ -13,3 +13,7 @@ module.exports.getProjects = (event, context, callback) => {
     callback(null, response);
   });
 };
+
+module.exports.populateDb = (event, context, callback) => {
+  console.log('triggered ' + event);
+}
