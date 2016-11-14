@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marzeelabs/serverless-cordis.git"
+    "url": "git+https://github.com/marzeelabs/cordis-serverless.git"
   },
   "keywords": [
     "serverless",
@@ -31,7 +31,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/marzeelabs/serverless-cordis/issues"
+    "url": "https://github.com/marzeelabs/cordis-serverless/issues"
   },
-  "homepage": "https://github.com/marzeelabs/serverless-cordis#readme"
+  "homepage": "https://github.com/marzeelabs/cordis-serverless#readme"
 }

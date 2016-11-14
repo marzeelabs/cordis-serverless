@@ -9,5 +9,5 @@ WIP
 
 MIT © [Marzee Labs](http://marzeelabs.org)
 
-[travis-image]: https://travis-ci.org/marzeelabs/cordis-parser.svg?branch=master
-[travis-url]: https://travis-ci.org/marzeelabs/cordis-parser
+[travis-image]: https://travis-ci.org/marzeelabs/cordis-serverless.svg?branch=master
+[travis-url]: https://travis-ci.org/marzeelabs/cordis-serverless
