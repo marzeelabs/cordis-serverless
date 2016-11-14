@@ -5,6 +5,12 @@
 
 WIP
 
+## Test locally
+
+You can invoke functions locally, like
+
+	serverless invoke local -f getProjects
+
 ## License
 
 MIT © [Marzee Labs](http://marzeelabs.org)

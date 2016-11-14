@@ -1,16 +1,15 @@
 'use strict';
 
-module.exports.hello = (event, context, callback) => {
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'Go Serverless v1.0! Your function executed successfully!',
-      input: event,
-    }),
-  };
+var cp = require('cordis-parser');
 
-  callback(null, response);
-
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
+module.exports.getProjects = (event, context, callback) => {
+  cp.parseHorizon2020(function(result) {
+    // Slice the results until we introduce proper pagination
+    var sliced = result.slice(0,100);
+    const response = {
+      statusCode: 200,
+      body: JSON.stringify(sliced),
+    };
+    callback(null, response);
+  });
 };
