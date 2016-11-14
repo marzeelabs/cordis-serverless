@@ -1,0 +1,37 @@
+{
+  "name": "cordis-serverless",
+  "version": "1.0.0",
+  "description": "A serverless API for EU Cordis data",
+  "main": "handler.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "cordis-parser": "^0.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marzeelabs/serverless-cordis.git"
+  },
+  "keywords": [
+    "serverless",
+    "cordis",
+    "api",
+    "EU",
+    "data"
+  ],
+  "author": {
+    "name": "Peter Vanhee",
+    "email": "peter@marzeelabs.org",
+    "url": "http://github.com/pvhee"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marzeelabs/serverless-cordis/issues"
+  },
+  "homepage": "https://github.com/marzeelabs/serverless-cordis#readme"
+}
