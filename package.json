@@ -7,7 +7,7 @@
     "test": "test"
   },
   "dependencies": {
-    "cordis-parser": "^0.1.0"
+    "cordis-parser": "marzeelabs/cordis-parser#master"
   },
   "devDependencies": {},
   "scripts": {
