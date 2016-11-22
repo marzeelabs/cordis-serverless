@@ -32,6 +32,16 @@ functions:
           method: get
           cors: true
 
+  # Retrieve organizations
+  getOrganizations:
+    handler: handler.getOrganizations
+    events:
+      - http:
+          path: organizations
+          method: get
+          cors: true
+
+
   # Populates our database of projects regularly
   populateDb:
     handler: handler.populateDb
