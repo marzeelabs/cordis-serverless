@@ -1,7 +1,6 @@
-'use strict';
-
+var db = require('./lib/dynamo');
 var cp = require('cordis-parser');
-var db = require('lib/dynamo');
+
 
 module.exports.getProjects = (event, context, callback) => {
   cp.parseHorizon2020Projects(function(result) {
