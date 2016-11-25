@@ -1,6 +1,7 @@
 'use strict';
 
 var cp = require('cordis-parser');
+var db = require('lib/dynamo');
 
 module.exports.getProjects = (event, context, callback) => {
   cp.parseHorizon2020Projects(function(result) {
@@ -27,5 +28,15 @@ module.exports.getOrganizations = (event, context, callback) => {
 };
 
 module.exports.populateDb = (event, context, callback) => {
-  console.log('triggered ' + event);
+  cp.parseHorizon2020Projects(function(result) {
+    // Slice the results until we introduce proper pagination
+    var sliced = result.slice(0,10);
+
+    for (var i=0; i<sliced.length; ++i) {
+      db.createProject(sliced[0]);
+      console.log(sliced[0]);
+    }
+    // createProject()
+
+  });
 }

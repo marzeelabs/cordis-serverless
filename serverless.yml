@@ -49,3 +49,19 @@ functions:
       - schedule:
           rate: rate(2 hours)
           enabled: true
+
+resources:
+  Resources:
+    projectsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: projects
+        AttributeDefinitions:
+          - AttributeName: rcn
+            AttributeType: S
+        KeySchema:
+          - AttributeName: rcn
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
