@@ -30,7 +30,7 @@ module.exports.populateDb = (event, context, callback) => {
   cp.parseHorizon2020Projects(function(result) {
     db.createProjects(result)
       .then(function(content) {
-        callback(null, "Processed " + result.length + "projects");
+        callback(null, content);
       })
       .catch(function(error) {
         callback("Error processing projects: " + error.message);
