@@ -66,14 +66,14 @@ functions:
     events:
       - schedule:
           rate: rate(2 hours)
-          enabled: false
+          enabled: true
 
 resources:
   Resources:
     projectTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: cordis_projects
+        TableName: project
         AttributeDefinitions:
           - AttributeName: rcn
             AttributeType: N
