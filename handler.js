@@ -28,14 +28,12 @@ module.exports.getOrganizations = (event, context, callback) => {
 
 module.exports.populateDb = (event, context, callback) => {
   cp.parseHorizon2020Projects(function(result) {
-    // Slice the results until we introduce proper pagination
-    var sliced = result.slice(0,10);
-
-    for (var i=0; i<sliced.length; ++i) {
-      db.createProject(sliced[0]);
-      console.log(sliced[0]);
-    }
-    // createProject()
-
+    db.createProjects(result)
+      .then(function(content) {
+        callback(null, "Processed " + result.length + "projects");
+      })
+      .catch(function(error) {
+        callback("Error processing projects: " + error.message);
+      });
   });
 }
