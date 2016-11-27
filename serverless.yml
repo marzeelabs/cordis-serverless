@@ -21,7 +21,6 @@ provider:
   name: aws
   environment:
     REGION: eu-west-1
-
   runtime: nodejs4.3
   region: eu-west-1
   iamRoleStatements: # permissions for all of your functions can be set here
@@ -35,6 +34,12 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:eu-west-1:*:*"
+    - Effect: Allow
+      Action: # Gives permission to write to SQS
+        - sqs:SendMessage
+        - sqs:GetQueueUrl
+        - sqs:ReceiveMessage
+      Resource: "arn:aws:sqs:eu-west-1:*:*"
 
 
 
@@ -83,3 +88,7 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
+    projectsQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: CordisProjects
