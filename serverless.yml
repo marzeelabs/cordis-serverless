@@ -21,7 +21,6 @@ provider:
   name: aws
   environment:
     REGION: eu-west-1
-
   runtime: nodejs4.3
   region: eu-west-1
   iamRoleStatements: # permissions for all of your functions can be set here
@@ -35,8 +34,6 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:eu-west-1:*:*"
-
-
 
 functions:
   # Retrieve projects
