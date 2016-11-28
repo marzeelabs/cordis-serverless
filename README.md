@@ -29,6 +29,10 @@ Debug function invokes like
 
 	serverless logs -f getProjects
 
+Count number of items in a DynamoDB table
+
+	aws dynamodb scan --table-name=cordis_projects --select "COUNT"
+
 ## License
 
 MIT © [Marzee Labs](http://marzeelabs.org)

@@ -73,7 +73,7 @@ resources:
     projectTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: project
+        TableName: cordis_projects
         AttributeDefinitions:
           - AttributeName: rcn
             AttributeType: N
@@ -81,5 +81,5 @@ resources:
           - AttributeName: rcn
             KeyType: HASH
         ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
+          ReadCapacityUnits: 100
+          WriteCapacityUnits: 2000
