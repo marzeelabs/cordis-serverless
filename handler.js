@@ -26,13 +26,14 @@ module.exports.getOrganizations = (event, context, callback) => {
   });
 };
 
-module.exports.populateDb = (event, context, callback) => {
+module.exports.populateDb = (event, context) => {
   cp.parseHorizon2020Projects(function(result) {
     db.createProjects(result)
       .then(function(content) {
         callback(null, "Processed " + result.length + "projects");
       })
       .catch(function(error) {
+        // context.done(null, "Error processing projects: " + error.message);
         callback("Error processing projects: " + error.message);
       });
   });

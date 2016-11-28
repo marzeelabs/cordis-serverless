@@ -59,11 +59,11 @@ functions:
   populateDb:
     handler: handler.populateDb
     timeout: 300
-    memorySize: 1536
+    memorySize: 1024
     events:
       - schedule:
-          rate: rate(2 hours)
-          enabled: true
+          rate: rate(1 day)
+          enabled: false
 
 resources:
   Resources:
@@ -79,4 +79,6 @@ resources:
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 100
-          WriteCapacityUnits: 2000
+          # Every item averages 2kb, and we'd like to write 5000 items per second, so we need a (very large) write capacity of 10000
+          # Note that we won't be writing that often so this is not really a big deal.
+          WriteCapacityUnits: 10000
