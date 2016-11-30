@@ -1,6 +1,8 @@
 var db = require('./lib/dynamo');
 var cp = require('cordis-parser');
 
+import { graphql } from 'graphql';
+import Schema from './graphql/schema';
 
 module.exports.getProjects = (event, context, callback) => {
   cp.parseHorizon2020Projects(function(result) {
@@ -37,4 +39,21 @@ module.exports.populateDb = (event, context) => {
         callback("Error processing projects: " + error.message);
       });
   });
+}
+
+module.exports.runGraphQL = (event, callback) => {
+  let query = event.query;
+  console.log('QUERY: ', query);
+
+  // patch to allow queries from GraphiQL
+  // like the initial introspectionQuery
+  if (event.query && event.query.hasOwnProperty('query')) {
+    query = event.query.query.replace("\n", ' ', "g");
+  }
+
+  graphql(Schema, query).then(function(result) {
+    console.log('RESULT: ', result);
+    return callback(null, result);
+  });
+
 }
