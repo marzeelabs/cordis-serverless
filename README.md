@@ -19,6 +19,13 @@ Connect to your [Amazon AWS account](https://serverless.com/framework/docs/provi
 
 	serverless deploy
 
+### Endpoints
+
+Example querying graphQL
+
+	curl -X POST -H "Content-Type: application/json" -d '{"query": "{ project { rcn, title } }"}' https://b3wykwaone.execute-api.eu-west-1.amazonaws.com/dev/graphql
+
+
 ### Test locally
 
 You can invoke functions locally, like

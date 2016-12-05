@@ -9,7 +9,8 @@
   "dependencies": {
     "aws-sdk": "^2.7.7",
     "bluebird": "^3.4.6",
-    "cordis-parser": "marzeelabs/cordis-parser#master"
+    "cordis-parser": "marzeelabs/cordis-parser#master",
+    "graphql": "^0.8.2"
   },
   "devDependencies": {},
   "scripts": {
