@@ -49,14 +49,14 @@ module.exports.runGraphQL = (event, context, callback) => {
   try {
     // console.log(event.body)
     const body = JSON.parse(event.body);
-    console.log("BODY", body);
-    console.log('clean query', body.query);
+    // console.log("BODY", body);
+    // console.log('clean query', body.query);
     // const query = JSON.stringify(body.query);
 
     const query = body.query;
     // console.log('QUERY: ', query);
       // query = '{ project { rcn } }';
-    console.log('QUERY: ', query);
+    // console.log('QUERY: ', query);
 
 
     // patch to allow queries from GraphiQL

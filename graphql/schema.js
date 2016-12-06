@@ -48,7 +48,7 @@ const queryType = new gql.GraphQLObjectType({
         }
       },
       // resolve: (root, { rcn }) => dynamo.getProjects(rcn)
-      resolve: (root) => dynamo.getProjects()
+      resolve: (root, args) => dynamo.getProjects(args)
     }
   })
 });
