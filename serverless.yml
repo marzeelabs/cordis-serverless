@@ -74,6 +74,16 @@ functions:
           rate: rate(1 day)
           enabled: false
 
+  # Populates our database of projects regularly
+  populateDbOrganizations:
+    handler: handler.populateDbOrganizations
+    timeout: 300
+    memorySize: 1024
+    events:
+      - schedule:
+          rate: rate(1 day)
+          enabled: false
+
 resources:
   Resources:
     projectTable:
