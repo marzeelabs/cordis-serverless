@@ -92,3 +92,21 @@ resources:
           # Note that we won't be writing that often so this is not really a big deal.
           # However, that would be REALLY EXPENSIVE, so we need to finetune this.
           WriteCapacityUnits: 1
+    organizationTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: cordis_organizations
+        AttributeDefinitions:
+          - AttributeName: projectRcn
+            AttributeType: N
+          - AttributeName: id
+            AttributeType: N
+        KeySchema:
+          - AttributeName: projectRcn
+            KeyType: HASH
+          - AttributeName: id
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+
