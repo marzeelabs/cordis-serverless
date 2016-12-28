@@ -23,7 +23,7 @@ Connect to your [Amazon AWS account](https://serverless.com/framework/docs/provi
 
 Example querying graphQL
 
-	curl -X POST -H "Content-Type: application/json" -d '{"query": "{ project { rcn, title } }"}' https://b3wykwaone.execute-api.eu-west-1.amazonaws.com/dev/graphql
+	curl -X POST -H "Content-Type: application/json" -d '{"query": "{ project { rcn, title } }"}' https://tn2cf6x0di.execute-api.eu-west-1.amazonaws.com/dev/graphql
 
 
 ### Test locally
