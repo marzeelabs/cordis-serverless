@@ -12,13 +12,25 @@ const projectType = new gql.GraphQLObjectType({
       type: new gql.GraphQLNonNull(gql.GraphQLInt),
       description: 'The rcn.',
     },
-    reference: {
+    id: {
       type: new gql.GraphQLNonNull(gql.GraphQLInt),
-      description: 'The reference.',
+      description: 'The identifier.',
     },
     acronym: {
       type: gql.GraphQLString,
       description: 'The acronym.',
+    },
+    status: {
+      type: gql.GraphQLString,
+      description: 'The status.',
+    },
+    programme: {
+      type: gql.GraphQLString,
+      description: 'The programme.',
+    },
+    topics: {
+      type: gql.GraphQLString,
+      description: 'The topics.',
     },
     frameworkProgramme: {
       type: gql.GraphQLString,
@@ -27,6 +39,46 @@ const projectType = new gql.GraphQLObjectType({
     title: {
       type: gql.GraphQLString,
       description: 'The title of the project.',
+    },
+    startDate: {
+      type: gql.GraphQLString,
+      description: 'The start date of the project.',
+    },
+    endDate: {
+      type: gql.GraphQLString,
+      description: 'The end date of the project.',
+    },
+    projectUrl: {
+      type: gql.GraphQLString,
+      description: 'The project URL.',
+    },
+    objective: {
+      type: gql.GraphQLString,
+      description: 'The objective.',
+    },
+    fundingScheme: {
+      type: gql.GraphQLString,
+      description: 'The funding scheme.',
+    },
+    coordinator: {
+      type: gql.GraphQLString,
+      description: 'The coordinator.',
+    },
+    coordinatorCountry: {
+      type: gql.GraphQLString,
+      description: 'The country of the coordinator.',
+    },
+    participants: {
+      type: gql.GraphQLString,
+      description: 'The participants (separated by ;).',
+    },
+    participantCountries: {
+      type: gql.GraphQLString,
+      description: 'The countries of the participants (separated by ;).',
+    },
+    subjects: {
+      type: gql.GraphQLString,
+      description: 'The subject.',
     }
   }),
 });
