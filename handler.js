@@ -8,6 +8,7 @@ var db = require('./lib/dynamo');
 // import Schema from './graphql/schema';
 
 module.exports.getProjects = (event, context, callback) => {
+  // @todo replace with dynamoDB calls
   cp.parseHorizon2020Projects(function(result) {
     // Slice the results until we introduce proper pagination
     var sliced = result.slice(0,100);
@@ -20,6 +21,7 @@ module.exports.getProjects = (event, context, callback) => {
 };
 
 module.exports.getOrganizations = (event, context, callback) => {
+  // @todo replace with dynamoDB calls
   cp.parseHorizon2020Organizations(function(result) {
     // Slice the results until we introduce proper pagination
     var sliced = result.slice(0,100);
@@ -32,7 +34,7 @@ module.exports.getOrganizations = (event, context, callback) => {
 };
 
 module.exports.populateDb = (event, context, callback) => {
-  cp.parseHorizon2020(function(result) {
+  cp.parseHorizon2020Projects(function(result) {
     db.createProjects(result)
       .then(function(content) {
         callback(null, "Processed " + result.length + " projects");
@@ -57,7 +59,6 @@ module.exports.populateDbOrganizations = (event, context) => {
 }
 
 module.exports.runGraphQL = (event, context, callback) => {
-
   try {
     // console.log(event.body)
     const body = JSON.parse(event.body);
