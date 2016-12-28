@@ -31,7 +31,7 @@ module.exports.getOrganizations = (event, context, callback) => {
   });
 };
 
-module.exports.populateDb = (event, context) => {
+module.exports.populateDb = (event, context, callback) => {
   cp.parseHorizon2020Projects(function(result) {
     db.createProjects(result)
       .then(function(content) {
@@ -46,15 +46,6 @@ module.exports.populateDb = (event, context) => {
 
 module.exports.populateDbOrganizations = (event, context) => {
   cp.parseHorizon2020Organizations(function(result) {
-
-    // for (var key in result) {
-    //   console.log(key);
-    //   console.log(result[key]);
-    // }
-
-    // console.log(result[199382][0].projectRcn);
-    // var sliced = result.slice(0,1);
-    // console.log(sliced);
     db.createOrganizations(result)
       .then(function(content) {
         callback(null, "Processed " + result.length + "organizations");
