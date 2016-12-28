@@ -32,10 +32,10 @@ module.exports.getOrganizations = (event, context, callback) => {
 };
 
 module.exports.populateDb = (event, context, callback) => {
-  cp.parseHorizon2020Projects(function(result) {
+  cp.parseHorizon2020(function(result) {
     db.createProjects(result)
       .then(function(content) {
-        callback(null, "Processed " + result.length + "projects");
+        callback(null, "Processed " + result.length + " projects");
       })
       .catch(function(error) {
         // context.done(null, "Error processing projects: " + error.message);
