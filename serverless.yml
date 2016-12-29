@@ -85,6 +85,13 @@ functions:
           rate: rate(1 day)
           enabled: false
 
+  # DynamoDB stream function to annotate results
+  annotateDb:
+    handler: handler.annotateDb
+    events:
+      # @todo parametrize
+      - stream: arn:aws:dynamodb:eu-west-1:365688147560:table/cordis_projects/stream/2016-12-28T21:33:51.804 
+
 resources:
   Resources:
     projectTable:
@@ -102,7 +109,7 @@ resources:
           # Every item averages 2kb, and we'd like to write 5000 items per second, so we need a (very large) write capacity of 10000
           # Note that we won't be writing that often so this is not really a big deal.
           # However, that would be REALLY EXPENSIVE, so we need to finetune this.
-          WriteCapacityUnits: 25
+          WriteCapacityUnits: 10
     organizationTable:
       Type: AWS::DynamoDB::Table
       Properties:
