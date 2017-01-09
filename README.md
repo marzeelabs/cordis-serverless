@@ -19,11 +19,15 @@ Connect to your [Amazon AWS account](https://serverless.com/framework/docs/provi
 
 	serverless deploy
 
+### AWS setup
+
+DynamoDB streams [aren't managed by Serverless](https://serverless.com/framework/docs/providers/aws/events/streams/), so these have been set up through the UI.
+
 ### Endpoints
 
 Example querying graphQL
 
-	curl -X POST -H "Content-Type: application/json" -d '{"query": "{ project { rcn, title } }"}' https://tn2cf6x0di.execute-api.eu-west-1.amazonaws.com/dev/graphql
+	curl -X POST -H "Content-Type: application/json" -d '{"query": "{ project { rcn, title } }"}' https://5e5qfaxb1c.execute-api.eu-west-1.amazonaws.com/dev/graphql
 
 
 ### Test locally
