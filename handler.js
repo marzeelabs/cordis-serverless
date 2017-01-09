@@ -58,18 +58,28 @@ module.exports.populateDbOrganizations = (event, context) => {
   });
 }
 
+
+// See https://github.com/snowplow/aws-lambda-nodejs-example-project/blob/master/ProcessKinesisRecords.js
+module.exports.annotateDb = (event, context, callback) => {
+  for (i=0; i < event.Records.length; i++) {
+    var record = event.Records[i].dynamodb.NewImage;
+    // @todo geocode record
+    // save geocoded record back into database
+  }
+}
+
 module.exports.runGraphQL = (event, context, callback) => {
   try {
-    // console.log(event.body)
+    console.log(event.body)
     const body = JSON.parse(event.body);
-    // console.log("BODY", body);
+    console.log("BODY", body);
     // console.log('clean query', body.query);
     // const query = JSON.stringify(body.query);
 
     const query = body.query;
     // console.log('QUERY: ', query);
       // query = '{ project { rcn } }';
-    // console.log('QUERY: ', query);
+    console.log('QUERY: ', query);
 
 
     // patch to allow queries from GraphiQL
@@ -90,6 +100,12 @@ module.exports.runGraphQL = (event, context, callback) => {
 
       const response = {
         statusCode: 200,
+        headers: {
+          'Content-type': 'application/json',
+          'Access-Control-Allow-Origin' : '*', // Required for CORS support to work
+          'Access-Control-Allow-Headers': 'Content-Type',
+          'Access-Control-Allow-Methods': '*'
+        },
         body: JSON.stringify(result),
       };
 
