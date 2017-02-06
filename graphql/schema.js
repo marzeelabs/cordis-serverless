@@ -79,6 +79,16 @@ const projectType = new gql.GraphQLObjectType({
     subjects: {
       type: gql.GraphQLString,
       description: 'The subject.',
+    },
+    ecMaxContribution: {
+      // @todo make Float after we cleaned up data
+      type: gql.GraphQLString,
+      description: 'The max EC contribution.',
+    },
+    totalCost: {
+      // @todo make Float after we cleaned up data
+      type: gql.GraphQLString,
+      description: 'The total cost.',
     }
   }),
 });

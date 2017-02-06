@@ -105,11 +105,11 @@ resources:
           - AttributeName: rcn
             KeyType: HASH
         ProvisionedThroughput:
-          ReadCapacityUnits: 10
+          ReadCapacityUnits: 1
           # Every item averages 2kb, and we'd like to write 5000 items per second, so we need a (very large) write capacity of 10000
           # Note that we won't be writing that often so this is not really a big deal.
           # However, that would be REALLY EXPENSIVE, so we need to finetune this.
-          WriteCapacityUnits: 10
+          WriteCapacityUnits: 1
     organizationTable:
       Type: AWS::DynamoDB::Table
       Properties:
